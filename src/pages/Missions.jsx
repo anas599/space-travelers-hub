@@ -10,7 +10,7 @@ const Missions = () => {
     if (missions.length === 0) {
       dispatch(getMissionFromAPI());
     }
-  }, []);
+  });
   return (
     <section className="missionContainer">
       <table className="missions">
