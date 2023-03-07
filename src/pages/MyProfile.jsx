@@ -1,15 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { allMissions } from '../app/features/missions/missionsSlice';
-import { allRockets } from '../app/features/rockets/rocketSlice';
+import { allMissions } from '../redux/mission/missionSlice';
 
 const MyProfile = () => {
   const missions = useSelector(allMissions);
   // My missions
   const missionsArray = missions.filter((mission) => mission.joined);
-  const rockets = useSelector(allRockets);
-  // My rockets
-  const rocketsArray = rockets.filter((rocket) => rocket.reserved);
 
   return (
     <div className="ProfileContainer">
@@ -34,22 +30,6 @@ const MyProfile = () => {
       </section>
       <section className="myRockets">
         <span className="sectionTitle">My Rockets</span>
-        {rocketsArray.length > 0 ? (
-          <ul className="myMissionsList">
-            {rocketsArray.map((rocket) => {
-              if (rocket?.reserved) {
-                return (
-                  <li className="item" key={rocket.id}>
-                    {rocket.rocketName}
-                  </li>
-                );
-              }
-              return null;
-            })}
-          </ul>
-        ) : (
-          <span>NO ROCKET FOUND</span>
-        )}
       </section>
     </div>
   );
