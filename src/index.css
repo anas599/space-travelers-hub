@@ -1,3 +1,12 @@
+:root {
+  --blue: #0290ff;
+  --darkblue: rgb(0, 117, 207) f;
+  --black: #121212;
+  --wihite-2: #d1d1d1;
+  --lightblue: #4386bf;
+  --white: #e8e8e8;
+}
+
 body {
   margin: 0;
   font-family:
@@ -26,10 +35,58 @@ code {
     monospace;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: 2px solid #afafaf;
+  padding: 1rem;
+}
+
+a:visited {
+  color: var(--blue);
+}
+
 ul {
   list-style: none;
 }
 
 img {
-  width: 10rem;
+  width: 4rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.menuLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.rocket-img {
+  width: 15rem;
+}
+
+.rocket-info {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.rocket-ele {
+  display: flex;
+  margin: 1rem;
+}
+
+.rocket-info > button {
+  border: none;
+  border-radius: 5px;
+  width: 8rem;
+  height: 2rem;
+  color: white;
+  background-color: var(--blue);
 }
