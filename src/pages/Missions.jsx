@@ -14,15 +14,19 @@ const Missions = () => {
   return (
     <section className="missionContainer">
       <table className="missions">
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th> </th>
-        </tr>
-        {missions.map((mission) => (
-          <SingleMission key={mission.id} mission={mission} />
-        ))}
+        <thead>
+          <tr>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+          {missions.map((mission) => (
+            <SingleMission key={mission.id} mission={mission} />
+          ))}
+        </tbody>
       </table>
     </section>
   );
