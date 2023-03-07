@@ -23,7 +23,7 @@ const missionSlice = createSlice({
   initialState,
   name: 'missions',
   reducers: {
-    joinedMission: (state, action) => {
+    joinedMissiondd: (state, action) => {
       const newState = state.map((mission) => {
         if (mission.id === action.payload) {
           return { ...mission, joined: true };
@@ -61,7 +61,6 @@ const missionSlice = createSlice({
 
 // Expose the state
 export const allMissions = (state) => state.missions;
-
 // Export the actions
 export const { joinedMission, leavedMission } = missionSlice.actions;
 // Export default the reducer
