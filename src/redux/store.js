@@ -3,7 +3,7 @@ import rocketsReducer from './rockets/rocketsSlice';
 
 const store = configureStore({
   reducer: {
-    books: rocketsReducer,
+    rockets: rocketsReducer,
   },
 });
 export default store;
