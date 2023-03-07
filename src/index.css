@@ -212,7 +212,7 @@ tr:nth-child(even) {
 }
 
 .item {
-  padding: 2rem;
+  padding: 1rem;
   font-size: 1.5rem;
   font-weight: 500;
   border-bottom: none;

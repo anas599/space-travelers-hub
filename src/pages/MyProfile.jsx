@@ -25,7 +25,7 @@ const MyProfile = () => {
             })}
           </ul>
         ) : (
-          <span>NO MISSIONS FOUND</span>
+          <span>NO MISSIONS JOINED</span>
         )}
       </section>
       <section className="myRockets">
