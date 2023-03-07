@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  getRocketsArr, reserveRocket, rsvRocket, unrsvRocket, unreserveRocket,
+  getRocketsArr, reserveRocket, unreserveRocket,
 } from '../redux/rockets/rocketsSlice';
 
 function RocketsFunction() {

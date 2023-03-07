@@ -82,15 +82,6 @@ img {
   margin: 1rem;
 }
 
-/* .rocket-info > button {
-  border: none;
-  border-radius: 5px;
-  width: 8rem;
-  height: 2rem;
-  color: white;
-  background-color: var(--blue);
-} */
-
 .reserved-rocket {
   border: 1px solid var(--wihite-2);
   border-radius: 5px;
