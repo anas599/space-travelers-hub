@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { allMissions } from '../redux/mission/missionSlice';
 
 const MyProfile = () => {
+  const rocketsArr = useSelector((state) => state.rockets.rocketsArr);
+  const rocketsReserved = rocketsArr.filter((x) => x.reserved);
   const missions = useSelector(allMissions);
   // My missions
   const missionsArray = missions.filter((mission) => mission.joined);
@@ -30,6 +32,22 @@ const MyProfile = () => {
       </section>
       <section className="myRockets">
         <span className="sectionTitle">My Rockets</span>
+        {rocketsReserved.length > 0 ? (
+          <ul className="myMissionsList">
+            {rocketsReserved.map((x) => {
+              if (x?.reserved) {
+                return (
+                  <li className="item" key={x.id}>
+                    {x.rocket_name}
+                  </li>
+                );
+              }
+              return null;
+            })}
+          </ul>
+        ) : (
+          <span>NO Rockets Reserved</span>
+        )}
       </section>
     </div>
   );
