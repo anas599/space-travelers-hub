@@ -7,7 +7,7 @@ const SingleMission = ({ mission }) => (
     <td>{mission.description}</td>
     <td>
       <div
-        className={mission?.joined ? 'member-badge active' : 'member-badge'}
+        className={mission?.joined ? 'member-badge active-mission' : 'member-badge'}
       >
         {mission?.joined ? 'Active Member' : 'NOT A MEMBER'}
       </div>

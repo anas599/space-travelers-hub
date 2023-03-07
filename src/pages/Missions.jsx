@@ -8,6 +8,17 @@ const Missions = () => {
       missionName: 'Mission 1',
       description: 'Mission Desc',
     },
+    {
+      id: 2,
+      missionName: 'Mission 2',
+      description: 'Mission Desc',
+      joined: true,
+    },
+    {
+      id: 3,
+      missionName: 'Mission 3',
+      description: 'Mission Desc',
+    },
   ];
   return (
     <section className="missionContainer">
