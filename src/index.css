@@ -105,7 +105,6 @@ img {
   background-color: var(--blue);
 }
 
-
 .first-word {
   color: red;
 }
@@ -129,7 +128,7 @@ img {
   color: black;
   margin-bottom: 10px;
 }
-=======
+
 /* ============= MISSIONS PAGE ======================= */
 .missionContainer {
   margin: var(--container-margin);
@@ -268,4 +267,3 @@ tr:nth-child(even) {
 }
 
 /* ============== END MyProfile PAGE==================== */
-
