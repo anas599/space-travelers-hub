@@ -5,7 +5,21 @@ import axios from 'axios';
 const initialState = [];
 const baseURL = 'https://api.spacexdata.com/v3/missions';
 
-const missionsSlice = createSlice({
+// =============== Asynchronous =============
+
+export const getMissionFromAPI = createAsyncThunk(
+  'missions/getMissionFromAPI',
+  async (thunkAPI) => {
+    try {
+      const response = await axios.get(baseURL);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue('Something goes wrong.');
+    }
+  },
+);
+
+const missionSlice = createSlice({
   initialState,
   name: 'missions',
   reducers: {
@@ -28,27 +42,27 @@ const missionsSlice = createSlice({
       return newState;
     },
   },
-  // extraReducers: {
-  //   [getMissionFromAPI.pending]: (state) => {
-  //     console.log('Loading...', state);
-  //   },
-  //   [getMissionFromAPI.fulfilled]: (state, action) => {
-  //     const missions = action.payload.map(
-  //       ({ mission_id: id, mission_name: missionName, description }) => ({
-  //         id,
-  //         missionName,
-  //         description,
-  //       }),
-  //     );
-  //     return missions;
-  //   },
-  // },
+  extraReducers: {
+    [getMissionFromAPI.pending]: (state) => {
+      console.log('Loading...', state);
+    },
+    [getMissionFromAPI.fulfilled]: (state, action) => {
+      const missions = action.payload.map(
+        ({ mission_id: id, mission_name: missionName, description }) => ({
+          id,
+          missionName,
+          description,
+        }),
+      );
+      return missions;
+    },
+  },
 });
 
 // Expose the state
 export const allMissions = (state) => state.missions;
 
 // Export the actions
-export const { joinedMission, leavedMission } = missionsSlice.actions;
+export const { joinedMission, leavedMission } = missionSlice.actions;
 // Export default the reducer
-export default missionsSlice.reducer;
+export default missionSlice.reducer;
