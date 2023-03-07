@@ -16,6 +16,14 @@ export const getRocketsArr = createAsyncThunk(
   },
 );
 
+export function reserveRocket(id) {
+  const xx = { payload: id };
+  return {
+    type: 'ReserveRocket',
+    xx,
+  };
+}
+
 export const rocketsSlice = createSlice({
   name: 'rockets',
   initialState: {
@@ -23,7 +31,9 @@ export const rocketsSlice = createSlice({
     loading: false,
     ifSucceed: false,
   },
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getRocketsArr.pending, (state) => {

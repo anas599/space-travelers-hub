@@ -3,9 +3,9 @@ import {
   NavLink, Routes, Route,
 } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import MyProfile from './MyProfile';
-import Missions from './Missions';
-import RocketsFunction from './Rockets';
+import MyProfile from '../pages/MyProfile';
+import Missions from '../pages/Missions';
+import RocketsFunction from '../pages/Rockets';
 
 const Header = () => (
   <>
