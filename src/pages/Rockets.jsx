@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getRocketsArr, reserveRocket } from '../redux/rockets/rocketsSlice';
+import {
+  getRocketsArr, reserveRocket, rsvRocket, unrsvRocket, unreserveRocket,
+} from '../redux/rockets/rocketsSlice';
 
 function RocketsFunction() {
   const dispatch = useDispatch();
@@ -9,9 +11,15 @@ function RocketsFunction() {
   const ifSucceed = useSelector((store) => store.rockets.ifSucceed);
   const [type, setType] = useState('');
   const [name, setName] = useState('');
-  const reserveHandel = (id) => {
-    dispatch(reserveRocket(id));
+
+  const reserveHandel = (id, reserved) => {
+    if (reserved) {
+      dispatch(unreserveRocket(id));
+    } else {
+      dispatch(reserveRocket(id));
+    }
   };
+
   useEffect(() => {
     dispatch(getRocketsArr());
   }, [dispatch, ifSucceed]);
@@ -20,6 +28,7 @@ function RocketsFunction() {
     setName('');
     setType('');
   }, [rocketsArr]);
+
   return (
     <>
       {rocketsArr.map((rocket) => (
@@ -28,12 +37,17 @@ function RocketsFunction() {
           <div className="rocket-info">
             <h3>{rocket.rocket_name}</h3>
             <p>{rocket.description}</p>
-            <button type="button" onClick={() => reserveHandel(rocket.id)}>Reserve Rocket</button>
+            <button
+              type="button"
+              onClick={() => reserveHandel(rocket.id, rocket.reserved)}
+              className={rocket.reserved ? 'reserved-rocket' : 'asd'}
+            >
+              {rocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+            </button>
           </div>
         </div>
       ))}
     </>
   );
 }
-
 export default RocketsFunction;
