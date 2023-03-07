@@ -1,8 +1,9 @@
 :root {
+  --badgeColor: #1aa1b9;
   --blue: #0290ff;
   --darkblue: rgb(0, 117, 207) f;
   --black: #121212;
-  --wihite-2: #d1d1d1;
+  --wihite-2: #a0a0a0;
   --lightblue: #4386bf;
   --white: #e8e8e8;
   --secondary-color: #8d8a8a;
@@ -86,16 +87,49 @@ img {
   margin: 1rem;
 }
 
-.rocket-info > button {
+.reserved-rocket {
+  border: 1px solid var(--wihite-2);
+  border-radius: 5px;
+  width: 8.5rem;
+  height: 2rem;
+  color: var(--wihite-2);
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.unreserve-rocket {
   border: none;
   border-radius: 5px;
-  width: 8rem;
+  width: 8.5rem;
   height: 2rem;
   color: white;
   background-color: var(--blue);
 }
 
-/* ============= MISSIONS PAGE ======================= */
+.first-word {
+  color: red;
+}
+
+.reserved-badge {
+  background-color: var(--badgeColor);
+  color: white;
+  width: min-content;
+  border-radius: 5px;
+  padding: 2px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.rocket-description {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.rocket-description-text {
+  color: black;
+  margin-bottom: 10px;
+}
+
+/* ============= MISSIONS PAGE ================== */
 .missionContainer {
   margin: var(--container-margin);
 }

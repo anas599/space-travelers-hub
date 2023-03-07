@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getRocketsArr, reserveRocket } from '../redux/rockets/rocketsSlice';
+import {
+  getRocketsArr, reserveRocket, unreserveRocket,
+} from '../redux/rockets/rocketsSlice';
 
 function RocketsFunction() {
   const dispatch = useDispatch();
@@ -9,17 +11,26 @@ function RocketsFunction() {
   const ifSucceed = useSelector((store) => store.rockets.ifSucceed);
   const [type, setType] = useState('');
   const [name, setName] = useState('');
-  const reserveHandel = (id) => {
-    dispatch(reserveRocket(id));
+
+  const reserveHandel = (id, reserved) => {
+    if (reserved) {
+      dispatch(unreserveRocket(id));
+    } else {
+      dispatch(reserveRocket(id));
+    }
   };
+
   useEffect(() => {
-    dispatch(getRocketsArr());
+    if (rocketsArr.length === 0) {
+      dispatch(getRocketsArr());
+    }
   }, [dispatch, ifSucceed]);
 
   useEffect(() => {
     setName('');
     setType('');
   }, [rocketsArr]);
+
   return (
     <>
       {rocketsArr.map((rocket) => (
@@ -27,13 +38,26 @@ function RocketsFunction() {
           <img src={rocket.flickr_images[0]} alt={rocket.rocket_name} className="rocket-img" />
           <div className="rocket-info">
             <h3>{rocket.rocket_name}</h3>
-            <p>{rocket.description}</p>
-            <button type="button" onClick={() => reserveHandel(rocket.id)}>Reserve Rocket</button>
+            {rocket.reserved ? (
+              <div className="rocket-description">
+                <span className="reserved-badge">Reserved</span>
+                <span className="rocket-description-text">{rocket.description}</span>
+              </div>
+            ) : (
+              <span className="rocket-description-text">{rocket.description}</span>
+            )}
+            {' '}
+            <button
+              type="button"
+              onClick={() => reserveHandel(rocket.id, rocket.reserved)}
+              className={rocket.reserved ? 'reserved-rocket' : 'unreserve-rocket'}
+            >
+              {rocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+            </button>
           </div>
         </div>
       ))}
     </>
   );
 }
-
 export default RocketsFunction;
