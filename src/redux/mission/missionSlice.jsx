@@ -44,7 +44,7 @@ const missionSlice = createSlice({
   },
   extraReducers: {
     [getMissionFromAPI.pending]: (state) => {
-      console.log('Loading...', state);
+      console.log('Loading.....', state);
     },
     [getMissionFromAPI.fulfilled]: (state, action) => {
       const missions = action.payload.map(
