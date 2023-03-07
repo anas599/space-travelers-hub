@@ -38,11 +38,19 @@ function RocketsFunction() {
           <img src={rocket.flickr_images[0]} alt={rocket.rocket_name} className="rocket-img" />
           <div className="rocket-info">
             <h3>{rocket.rocket_name}</h3>
-            <p>{rocket.description}</p>
+            {rocket.reserved ? (
+              <div className="rocket-description">
+                <span className="reserved-badge">Reserved</span>
+                <span className="rocket-description-text">{rocket.description}</span>
+              </div>
+            ) : (
+              <span className="rocket-description-text">{rocket.description}</span>
+            )}
+            {' '}
             <button
               type="button"
               onClick={() => reserveHandel(rocket.id, rocket.reserved)}
-              className={rocket.reserved ? 'reserved-rocket' : 'asd'}
+              className={rocket.reserved ? 'reserved-rocket' : 'unreserve-rocket'}
             >
               {rocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
             </button>

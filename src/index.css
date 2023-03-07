@@ -1,4 +1,5 @@
 :root {
+  --badgeColor: #1aa1b9;
   --blue: #0290ff;
   --darkblue: rgb(0, 117, 207) f;
   --black: #121212;
@@ -91,11 +92,35 @@ img {
   background-color: rgba(255, 0, 0, 0);
 }
 
-.asd {
+.unreserve-rocket {
   border: none;
   border-radius: 5px;
   width: 8.5rem;
   height: 2rem;
   color: white;
   background-color: var(--blue);
+}
+
+.first-word {
+  color: red;
+}
+
+.reserved-badge {
+  background-color: var(--badgeColor);
+  color: white;
+  width: min-content;
+  border-radius: 5px;
+  padding: 2px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.rocket-description {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.rocket-description-text {
+  color: black;
+  margin-bottom: 10px;
 }
