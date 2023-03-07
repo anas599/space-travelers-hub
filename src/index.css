@@ -5,6 +5,10 @@
   --wihite-2: #d1d1d1;
   --lightblue: #4386bf;
   --white: #e8e8e8;
+  --secondary-color: #8d8a8a;
+  --accent-color: #579bb1;
+  --text-color: #514f4f;
+  --container-margin: 1rem 5rem 1rem 5rem;
 }
 
 body {
@@ -90,3 +94,142 @@ img {
   color: white;
   background-color: var(--blue);
 }
+
+/* ============= MISSIONS PAGE ======================= */
+.missionContainer {
+  margin: var(--container-margin);
+}
+
+.missions {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  border: 1px solid var(--secondary-color);
+  text-align: left;
+  padding: 8px;
+  font-size: 1.2rem;
+}
+
+td {
+  border: 1px solid var(--secondary-color);
+  text-align: left;
+  justify-content: flex-start;
+  padding: 8px;
+}
+
+td:nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0 0 0 0 !important;
+}
+
+td:nth-child(3) {
+  width: 10rem;
+  text-align: center;
+}
+
+td:nth-child(4) {
+  width: 10rem;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(231, 229, 229);
+}
+
+.member-badge {
+  padding: 0.2rem;
+  margin-right: 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 0.2rem;
+  letter-spacing: 0.1rem;
+  background-color: var(--secondary-color);
+}
+
+.active-mission {
+  background-color: var(--accent-color);
+}
+
+.joinBtn {
+  padding: 0.6rem;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  background-color: whitesmoke;
+  border: 0.1rem solid var(--secondary-color);
+  border-radius: 0.23rem;
+  cursor: pointer;
+}
+
+.leaveBtn {
+  padding: 0.6rem;
+  font-size: 1rem;
+  color: red;
+  background-color: white;
+  border: 0.1rem solid red;
+  border-radius: 0.23rem;
+  cursor: pointer;
+}
+
+/* ============== END MISSION PAGE==================== */
+
+/* ================== MY PROFILE PAGE =================== */
+.ProfileContainer {
+  margin: var(--container-margin);
+  display: flex;
+  gap: 5rem;
+}
+
+.myMissions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.myRockets {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.myMissionsList {
+  list-style: none;
+}
+
+.item {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-bottom: none;
+  border-top: 0.1rem solid var(--secondary-color);
+  border-left: 0.1rem solid var(--secondary-color);
+  border-right: 0.1rem solid var(--secondary-color);
+}
+
+.item:first-child {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.item:last-child {
+  border-bottom: 0.1rem solid var(--secondary-color);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+/* ============== END MyProfile PAGE==================== */
