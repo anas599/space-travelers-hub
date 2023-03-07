@@ -1,25 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import SingleMission from '../components/SingleMission';
+import { allMissions, getMissionFromAPI } from '../redux/mission/missionSlice';
 
 const Missions = () => {
-  const missions = [
-    {
-      id: 1,
-      missionName: 'Mission 1',
-      description: 'Mission Desc',
-    },
-    {
-      id: 2,
-      missionName: 'Mission 2',
-      description: 'Mission Desc',
-      joined: true,
-    },
-    {
-      id: 3,
-      missionName: 'Mission 3',
-      description: 'Mission Desc',
-    },
-  ];
+  const missions = useSelector(allMissions);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (missions.length === 0) {
+      dispatch(getMissionFromAPI());
+    }
+  }, []);
   return (
     <section className="missionContainer">
       <table className="missions">
