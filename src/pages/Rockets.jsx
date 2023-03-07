@@ -21,7 +21,9 @@ function RocketsFunction() {
   };
 
   useEffect(() => {
-    dispatch(getRocketsArr());
+    if (rocketsArr.length === 0) {
+      dispatch(getRocketsArr());
+    }
   }, [dispatch, ifSucceed]);
 
   useEffect(() => {
