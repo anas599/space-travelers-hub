@@ -2,13 +2,13 @@
 
 ## Screenshots
 ### ROCKETS
-![App Screenshot](./src/assets/homepage.png)
+![App Screenshot](./src/assets/Rockets-ScreenShot.png)
 
 ### MISSIONS
-![App Screenshot](./src/assets/popup.png)
+![App Screenshot](./src/assets/Missions-ScreenShot.png)
 
 ### MY PROFILE
-![App Screenshot](./src/assets/popup.png)
+![App Screenshot](./src/assets/MyProfile-ScreenShot.png)
 
 <!-- TABLE OF CONTENTS -->
 
