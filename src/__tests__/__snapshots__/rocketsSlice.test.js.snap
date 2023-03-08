@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RocketsFunction single rocket info to display 1`] = `
+Object {
+  "rockets": Object {
+    "rocketsArr": Array [
+      Object {
+        "description": "The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009....",
+        "flickr_images": Array [
+          "https://live.staticflickr.com/764/22460724618_69d817d02a_b.jpg",
+        ],
+        "id": "1",
+        "reserved": false,
+        "rocket_name": "Falcon 1",
+      },
+    ],
+  },
+}
+`;
