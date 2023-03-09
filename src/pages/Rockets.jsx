@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   getRocketsArr, reserveRocket, unreserveRocket,
@@ -9,8 +8,6 @@ function RocketsFunction() {
   const dispatch = useDispatch();
   const rocketsArr = useSelector((state) => state.rockets.rocketsArr);
   const ifSucceed = useSelector((store) => store.rockets.ifSucceed);
-  const [type, setType] = useState('');
-  const [name, setName] = useState('');
 
   const reserveHandel = (id, reserved) => {
     if (reserved) {
@@ -24,12 +21,7 @@ function RocketsFunction() {
     if (rocketsArr.length === 0) {
       dispatch(getRocketsArr());
     }
-  }, [dispatch, ifSucceed]);
-
-  useEffect(() => {
-    setName('');
-    setType('');
-  }, [rocketsArr]);
+  }, [dispatch, ifSucceed, rocketsArr.length]);
 
   return (
     <>
