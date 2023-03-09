@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Missions Page single mission info should display 1`] = `
+Object {
+  "missions": Object {
+    "missions": Array [
+      Object {
+        "description": "Mission 1 Desc",
+        "id": "1",
+        "joined": false,
+        "missionName": "Mission 1",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Single mission info to display 1`] = `
+Object {
+  "missions": Object {
+    "missions": Array [
+      Object {
+        "description": "Mission 1 description",
+        "id": "1",
+        "joined": false,
+        "missionName": "Mission 1",
+      },
+    ],
+  },
+}
+`;

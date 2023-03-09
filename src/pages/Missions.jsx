@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SingleMission from '../components/SingleMission';
-import { allMissions, getMissionFromAPI } from '../redux/mission/missionSlice';
+import { allMissions, getMissionFromAPI, isLoading } from '../redux/mission/missionSlice';
 
 const Missions = () => {
   const missions = useSelector(allMissions);
+  const loading = useDispatch(isLoading);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (missions.length === 0) {
       dispatch(getMissionFromAPI());
     }
-  });
+  }, [dispatch, loading, missions.length]);
   return (
     <section className="missionContainer">
       <table className="missions">
