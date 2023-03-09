@@ -15,7 +15,7 @@ const Header = () => {
       <header>
         <div className="logo">
           <img src={logo} alt="Logo" />
-          <span className="title">Space Travelers&apos;s Hub</span>
+          <span className="title">Space Travelers&apos; Hub</span>
         </div>
         <nav>
           <ul className="menuLinks">

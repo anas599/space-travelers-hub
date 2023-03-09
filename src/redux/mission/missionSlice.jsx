@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // Initial state
-const initialState = [];
+const initialState = { missions: [], isLoading: false };
 const baseURL = 'https://api.spacexdata.com/v3/missions';
 
 // =============== Asynchronous =============
@@ -24,22 +24,22 @@ const missionSlice = createSlice({
   name: 'missions',
   reducers: {
     joinedMission: (state, action) => {
-      const newState = state.map((mission) => {
+      const newState = state.missions.map((mission) => {
         if (mission.id === action.payload) {
           return { ...mission, joined: true };
         }
         return mission;
       });
-      return newState;
+      return { ...state, missions: newState };
     },
     leavedMission: (state, action) => {
-      const newState = state.map((mission) => {
+      const newState = state.missions.map((mission) => {
         if (mission.id === action.payload) {
           return { ...mission, joined: false };
         }
         return mission;
       });
-      return newState;
+      return { ...state, missions: newState };
     },
   },
   extraReducers: {
@@ -51,13 +51,15 @@ const missionSlice = createSlice({
           description,
         }),
       );
-      return missions;
+      return { ...state, missions };
     },
+    [getMissionFromAPI.rejected]: (state) => ({ ...state, isLoading: false }),
   },
 });
 
 // Expose the state
-export const allMissions = (state) => state.missions;
+export const allMissions = (state) => state.missions.missions;
+export const isLoading = (state) => state.missions.isLoading;
 // Export the actions
 export const { joinedMission, leavedMission } = missionSlice.actions;
 // Export default the reducer
